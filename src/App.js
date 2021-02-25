@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Catalogue from "./components/Catalogue";
 
-function App() {
+import "./App.css";
+
+const App = () => {
+  const [type, setType] = useState("Mountain");
+
+  const typeArr = ["Mountain", "Bird", "Food", "Beaches"];
+
+  const typeButtons = typeArr.map((value) => (
+    <button className="button" value={value} onClick={(e) => handleInput(e)}>
+      {value}
+    </button>
+  ));
+
+  const handleInput = (e) => {
+    setType(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <div className="button-container">{typeButtons}</div>
+      <Catalogue type={type} />
     </div>
   );
-}
+};
 
 export default App;

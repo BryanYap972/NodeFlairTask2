@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "../App.css";
+import "../style/Catalogue.css";
 
 const Catalogue = (props) => {
   const [type, setType] = useState("");
 
+  //Change state when props changes
   useEffect(() => {
     setType(props.type);
   }, [props]);
 
+  //Function to get image based on the state
   const getImageUrl = (type) => {
     switch (type) {
       case "Mountain":

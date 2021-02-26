@@ -8,12 +8,14 @@ const App = () => {
 
   const typeArr = ["Mountain", "Bird", "Food", "Beaches"];
 
+  //Create buttons for each type in typeArr
   const typeButtons = typeArr.map((value) => (
     <button className="button" value={value} onClick={(e) => handleInput(e)}>
       {value}
     </button>
   ));
 
+  //Handle onClick for the button to change the state
   const handleInput = (e) => {
     setType(e.target.value);
   };
